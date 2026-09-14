@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Store - BotolKu, PAUSARA & JemblemKu</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f5f7f8;
+            color: #333;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        header {
+            background: white;
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        }
+
+        nav {
+            max-width: 1150px;
+            margin: auto;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        nav h1 {
+            font-size: 24px;
+            color: #075b68;
+        }
+
+        nav div {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            padding: 8px 10px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            background: #eef5f6;
+        }
+
+        .cart-nav {
+            background: #075b68;
+            color: white !important;
+        }
+
+        .cart-nav:hover {
+            background: #078090 !important;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            max-width: 1100px;
+            margin: auto;
+            padding: 70px 20px;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero small {
+            color: #078090;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .hero h2 {
+            font-size: 50px;
+            margin: 15px 0;
+            line-height: 1.1;
+        }
+
+        .hero h2 span {
+            color: #078090;
+        }
+
+        .hero p {
+            color: #607579;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .hero img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        .hero-button {
+            display: inline-block;
+            background: #075b68;
+            color: white;
+            text-decoration: none;
+            padding: 13px 22px;
+            border-radius: 8px;
+        }
+
+        .hero-button:hover {
+            background: #078090;
+        }
+
+
+        /* =========================
+           SECTION
+        ========================= */
+
+        section {
+            scroll-margin-top: 80px;
+        }
+
+        .section-title {
+            text-align: center;
+            padding: 60px 20px 30px;
+        }
+
+        .section-title small {
+            color: #078090;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            margin-top: 10px;
+        }
+
+        .section-title p {
+            color: #68777a;
+            margin-top: 10px;
+        }
+
+
+        /* =========================
+           PRODUK
+        ========================= */
+
+        .produk-section {
+            padding-bottom: 60px;
+        }
+
+        .produk-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 20px;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .produk {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+
+            transition: 0.3s;
+        }
+
+        .produk:hover {
+            transform: translateY(-5px);
+        }
+
+        .produk img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+        }
+
+        .produk-info {
+            padding: 20px;
+        }
+
+        .kategori {
+            font-size: 12px;
+            color: #078090;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .produk h3 {
+            margin: 10px 0;
+            font-size: 21px;
+        }
+
+        .produk p {
+            color: #68777a;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .harga {
+            color: #075b68 !important;
+            font-size: 20px !important;
+            font-weight: bold;
+            margin: 15px 0 !important;
+        }
+
+        .produk button {
+            width: 100%;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+
+            background: #075b68;
+            color: white;
+
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .produk button:hover {
+            background: #078090;
+        }
+
+
+        /* =========================
+           WARNA JEMBLEM
+        ========================= */
+
+        #jemblem {
+            background: #fff8ef;
+        }
+
+        #jemblem .section-title small {
+            color: #8d6e63;
+        }
+
+        #jemblem .produk button {
+            background: #6d4c41;
+        }
+
+        #jemblem .produk button:hover {
+            background: #4e342e;
+        }
+
+        #jemblem .harga {
+            color: #8d6e63 !important;
+        }
+
+
+        /* =========================
+           KERANJANG
+        ========================= */
+
+        #keranjang {
+            background: #eef7f8;
+            padding: 70px 20px;
+        }
+
+        .cart-box {
+            max-width: 850px;
+            margin: auto;
+
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .cart-box h2 {
+            margin-bottom: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 15px;
+
+            padding: 15px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .cart-info {
+            flex: 1;
+        }
+
+        .cart-info h3 {
+            font-size: 17px;
+            margin-bottom: 5px;
+        }
+
+        .cart-info p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .cart-subtotal {
+            font-weight: bold;
+            color: #075b68;
+        }
+
+        .jumlah {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .jumlah button {
+            width: 30px;
+            height: 30px;
+
+            border: none;
+            border-radius: 5px;
+
+            background: #075b68;
+            color: white;
+
+            cursor: pointer;
+        }
+
+        .jumlah button:hover {
+            background: #078090;
+        }
+
+        .jumlah .hapus {
+            background: #b94a48;
+        }
+
+        .jumlah .hapus:hover {
+            background: #922d2b;
+        }
+
+        .kosong {
+            text-align: center;
+            color: #777;
+            padding: 25px;
+        }
+
+        .total {
+            display: flex;
+            justify-content: space-between;
+
+            margin-top: 25px;
+
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        .checkout {
+            width: 100%;
+            margin-top: 20px;
+
+            padding: 14px;
+
+            border: none;
+            border-radius: 8px;
+
+            background: #25d366;
+            color: white;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .checkout:hover {
+            background: #1ebe5d;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            max-width: 850px;
+            margin: auto;
+            padding: 70px 20px;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .about p {
+            color: #68777a;
+            line-height: 1.8;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #075b68;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+            line-height: 1.8;
+        }
+
+        footer p {
+            opacity: 0.85;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            nav {
+                flex-direction: column;
+            }
+
+            nav div {
+                justify-content: center;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 40px;
+            }
+
+            .hero h2 {
+                font-size: 40px;
+            }
+
+            .produk-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 550px) {
+
+            .produk-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero img {
+                height: 280px;
+            }
+
+            .cart-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .jumlah {
+                width: 100%;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     NAVBAR
+================================================== -->
+
+<header>
+
+    <nav>
+
+        <h1>🛍️ My Store</h1>
+
+        <div>
+
+            <a href="#home">
+                Home
+            </a>
+
+            <a href="#botol">
+                🧴 BotolKu
+            </a>
+
+            <a href="#pausara">
+                🐋 PAUSARA
+            </a>
+
+            <a href="#jemblem">
+                🍠 Jemblem
+            </a>
+
+            <a href="#keranjang" class="cart-nav">
+                🛒 Keranjang
+                (<span id="jumlahKeranjang">0</span>)
+            </a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<!-- ==================================================
+     HOME
+================================================== -->
+
+<section class="hero" id="home">
+
+    <div>
+
+        <small>
+            WELCOME TO MY STORE
+        </small>
+
+        <h2>
+            Satu website,
+            <span>tiga pilihan.</span>
+        </h2>
+
+        <p>
+            Temukan botol minum, produk bertema
+            iwak paus, dan jemblem homemade
+            dalam satu toko sederhana.
+        </p>
+
+        <a href="#botol" class="hero-button">
+            Mulai Belanja
+        </a>
+
+    </div>
+
+
+    <div>
+
+        <img
+            src="https://images.unsplash.com/photo-1493770348161-369560ae357d?auto=format&fit=crop&w=1000&q=80"
+            alt="Produk toko">
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     BOTOLKU
+================================================== -->
+
+<section
+    class="produk-section"
+    id="botol"
+>
+
+    <div class="section-title">
+
+        <small>
+            BOTOLKU
+        </small>
+
+        <h2>
+            🧴 Toko Botol Minum
+        </h2>
+
+        <p>
+            Botol minum keren untuk menemani aktivitasmu.
+        </p>
+
+    </div>
+
+
+    <div class="produk-container">
+
+
+        <!-- BOTOL 1 -->
+
+        <div class="produk">
+
+            <img
+                src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=600&q=80"
+                alt="Botol Classic"
+            >
+
+            <div class="produk-info">
+
+                <div class="kategori">
+                    BOTOLKU
+                </div>
+
+                <h3>
+                    Botol Classic
+                </h3>
+
+                <p>
+                    Botol minum simple dan cocok
+                    untuk sekolah.
+                </p>
+
+                <p class="harga">
+                    Rp35.000
+                </p>
+
+                <button
+                    onclick="tambahKeranjang('Botol Classic', 35000)"
+                >
+                    🛒 Tambah ke Keranjang
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- BOTOL 2 -->
+
+        <div class="produk">
+
+            <img
+                src="https://images.unsplash.com/photo-1625708458528-802ec79b1edc?auto=format&fit=crop&w=600&q=80"
+                alt="Botol Sport"
+            >
+
+            <div class="produk-info">
+
+                <div class="kategori">
+                    BOTOLKU
+                </div>
+
+                <h3>
+                    Botol Sport
+                </h3>
+
+                <p>
+                    Botol praktis untuk olahraga
+                    dan aktivitas sehari-hari.
+                </p>
+
+                <p class="harga">
+                    Rp45.000
+                </p>
+
+                <button
+                    onclick="tambahKeranjang('Botol Sport', 45000)"
+                >
+                    🛒 Tambah ke Keranjang
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- BOTOL 3 -->
+
+        <div class="produk">
+
+            <img
+                src="https://images.unsplash.com/photo-1556881286-fc6915169721?auto=format&fit=crop&w=600&q=80"
+                alt="Botol Premium"
+            >
+
+            <div class="produk-info">
+
+                <div class="kategori">
+                    BOTOLKU
+                </div>
+
+                <h3>
+                    Botol Premium
+                </h3>
+
+                <p>
+                    Desain elegan dengan
+                    kapasitas besar.
+                </p>
+
+                <p class="harga">
+                    Rp65.000
+                </p>
+
+                <button
+                    onclick="tambahKeranjang('Botol Premium', 65000)"
+                >
+                    🛒 Tambah ke Keranjang
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- BOTOL 4 -->
+
+        <div class="produk">
+
+            <img
+                src="https://images.unsplash.com/photo-1589365278144-c9e705f843ba?auto=format&fit=crop&w=600&q=80"
+                alt="Botol Minimalis"
+            >
+
+            <div class="produk-info">
+
+                <div class="kategori">
+                    BOTOLKU
+                </div>
+
+                <h3>
+                    Botol Minimalis
+                </h3>
+
+                <p>
+                    Desain minimalis, ringan,
+                    dan mudah dibawa.
+                </p>
+
+                <p class="harga">
+                    Rp40.000
+                </p>
+
+                <button
+                    onclick="tambahKeranjang('Botol Minimalis', 40000)"
+                >
+                    🛒 Tambah ke Keranjang
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     PAUSARA
+================================================== -->
+
+<section
+    class="produk-section"
+    id="pausara"
+>
+
+    <div class="section-title">
+
+        <small>
+            PAUSARA
+        </small>
+
+        <h2>
+            🐋 Produk Iwak Paus
+        </h2>
+
+        <p>
+            Koleksi bertema laut untuk para pecinta paus.
+        </p>
+
+    </div>
+
+
+    <div class="produk-container">
+
+
+        <!-- PAUSARA 1 -->
+
+        <div class="produk">
+
+            <img
+                src="https://images.unsplash.com/photo-1698334846759-2cdc3352dd85?auto=format&fit=crop&w=800&q=80"
+                alt="Poster Iwak Paus"
+            >
+
+            <div class="produk-info">
+
+                <div class="kategori">
+                    PAUSARA
+                </div>
+
+                <h3>
+                    Poster Iwak Paus
+                </h3>
+
+                <p>
+                    Poster bertema iwak paus
+                    dengan nuansa laut biru.
+                </p>
+
+                <p class="harga">
+                    Rp45.000
+                </p>
+
+                <button
+                    onclick="tambahKeranjang('Poster Iwak Paus', 45000)"
+                >
+                    🛒 Tambah ke Keranjang
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PAUSARA 2 -->
+
+        <div class="produk">
+
+            <img
+                src="https://images.unsplash.com/photo-1560275619-4662e36fa65c?auto=format&fit=crop&w=800&q=80"
+                alt="Whale Ocean Print"
+            >
+
+            <div class="produk-info">
+
+                <div class="kategori">
+                    PAUSARA
+                </div>
+
+                <h3>
+                    Whale Ocean Print
+                </h3>
+
+                <p>
+                    Art print bertema paus
+                    dan kehidupan samudra.
+                </p>
+
+                <p class="harga">
+                    Rp65.000
+                </p>
+
+                <button
+                    onclick="tambahKeranjang('Whale Ocean Print', 65000)"
+                >
+                    🛒 Tambah ke Keranjang
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PAUSARA 3 -->
+
+        <div class="produk">
+
+            <img
+                src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80"
+                alt="Ocean Whale Collection"
+            >
+
+            <div class="produk-info">
+
+                <div class="kategori">
+                    PAUSARA
+                </div>
+
+                <h3>
+                    Ocean Whale Collection
+                </h3>
+
+                <p>
+                    Koleksi bertema kehidupan
+                    laut untuk pecinta paus.
+                </p>
+
+                <p class="harga">
+                    Rp85.000
+                </p>
+
+                <button
+                    onclick="tambahKeranjang('Ocean Whale Collection', 85000)"
+                >
+                    🛒 Tambah ke Keranjang
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     JEMBLEMKU
+================================================== -->
+
+<section
+    class="produk-section"
+    id="jemblem"
+>
+
+    <div class="section-title">
+
+        <small>
+            JEMBLEMKU
+        </small>
+
+        <h2>
+            🍠 Pilihan Jemblem
+        </h2>
+
+        <p>
+            Jemblem homemade, manis, gurih,
+            dan bikin nagih.
+        </p>
+
+    </div>
+
+
+    <div class="produk-container">
+
+
+        <!-- JEMBLEM 1 -->
+
+        <div class="produk">
+
+            <img
+                src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80"
+                alt="Jemblem Gula Merah"
+            >
+
+            <div class="produk-info">
+
+                <div class="kategori">
+                    JEMBLEMKU
+                </div>
+
+                <h3>
+                    Jemblem Gula Merah
+                </h3>
+
+                <p>
+                    Jemblem klasik dengan isian
+                    gula merah yang legit.
+                </p>
+
+                <p class="harga">
+                    Rp5.000
+                </p>
+
+                <button
+                    onclick="tambahKeranjang('Jemblem Gula Merah', 5000)"
+                >
+                    🛒 Tambah ke Keranjang
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- JEMBLEM 2 -->
+
+        <div class="produk">
+
+            <img
+                src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80"
+                alt="Jemblem Coklat"
+            >
+
+            <div class="produk-info">
+
+                <div class="kategori">
+                    JEMBLEMKU
+                </div>
+
+                <h3>
+                    Jemblem Coklat
+                </h3>
+
+                <p>
+                    Jemblem dengan isian
+                    coklat yang manis dan lezat.
+                </p>
+
+                <p class="harga">
+                    Rp5.000
+                </p>
+
+                <button
+                    onclick="tambahKeranjang('Jemblem Coklat', 5000)"
+                >
+                    🛒 Tambah ke Keranjang
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- JEMBLEM 3 -->
+
+        <div class="produk">
+
+            <img
+                src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=800&q=80"
+                alt="Jemblem Pisang"
+            >
+
+            <div class="produk-info">
+
+                <div class="kategori">
+                    JEMBLEMKU
+                </div>
+
+                <h3>
+                    Jemblem Pisang
+                </h3>
+
+                <p>
+                    Perpaduan jemblem gurih
+                    dengan isian pisang.
+                </p>
+
+                <p class="harga">
+                    Rp5.000
+                </p>
+
+                <button
+                    onclick="tambahKeranjang('Jemblem Pisang', 5000)"
+                >
+                    🛒 Tambah ke Keranjang
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     KERANJANG BERSAMA
+================================================== -->
+
+<section id="keranjang">
+
+    <div class="cart-box">
+
+        <h2>
+            🛒 Keranjang Belanja
+        </h2>
+
+        <div id="isiKeranjang">
+
+            <p class="kosong">
+                Keranjang masih kosong.
+            </p>
+
+        </div>
+
+
+        <div class="total">
+
+            <span>
+                Total
+            </span>
+
+            <span>
+                Rp<span id="totalHarga">0</span>
+            </span>
+
+        </div>
+
+
+        <button
+            class="checkout"
+            onclick="checkoutWhatsApp()"
+        >
+            📱 Checkout via WhatsApp
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     ABOUT
+================================================== -->
+
+<section class="about">
+
+    <h2>
+        About My Store
+    </h2>
+
+    <p>
+        Website sederhana yang menggabungkan
+        tiga toko dalam satu halaman:
+        BotolKu, PAUSARA, dan JemblemKu.
+        Semua produk dapat dimasukkan ke dalam
+        satu keranjang dan dipesan melalui WhatsApp.
+    </p>
+
+</section>
+
+
+
+<!-- ==================================================
+     FOOTER
+================================================== -->
+
+<footer>
+
+    <h2>
+        🛍️ My Store
+    </h2>
+
+    <p>
+        BotolKu • PAUSARA • JemblemKu
+    </p>
+
+    <p>
+        by Arumi Na'ilah Mulya Elysia (05) XRPL3
+    </p>
+
+    <p>
+        © 2026 My Store
+    </p>
+
+</footer>
+
+
+
+<!-- ==================================================
+     JAVASCRIPT
+================================================== -->
+
+<script>
+
+    /* ==========================================
+       NOMOR WHATSAPP TOKO
+       
+       GANTI ANGKA INI SAJA
+       ========================================== */
+
+    const nomorWhatsApp = "6281517745800";
+
+
+    /* ==========================================
+       KERANJANG
+       ========================================== */
+
+    let keranjang = [];
+
+
+    /* ==========================================
+       FORMAT RUPIAH
+       ========================================== */
+
+    function formatRupiah(angka) {
+
+        return angka.toLocaleString("id-ID");
+
+    }
+
+
+    /* ==========================================
+       TAMBAH KE KERANJANG
+       ========================================== */
+
+    function tambahKeranjang(nama, harga) {
+
+        let produk = keranjang.find(
+            item => item.nama === nama
+        );
+
+
+        if (produk) {
+
+            produk.jumlah++;
+
+        } else {
+
+            keranjang.push({
+
+                nama: nama,
+                harga: harga,
+                jumlah: 1
+
+            });
+
+        }
+
+
+        tampilkanKeranjang();
+
+    }
+
+
+    /* ==========================================
+       TAMPILKAN KERANJANG
+       ========================================== */
+
+    function tampilkanKeranjang() {
+
+        const isi =
+            document.getElementById(
+                "isiKeranjang"
+            );
+
+        const jumlahKeranjang =
+            document.getElementById(
+                "jumlahKeranjang"
+            );
+
+        const totalHarga =
+            document.getElementById(
+                "totalHarga"
+            );
+
+
+        if (keranjang.length === 0) {
+
+            isi.innerHTML = `
+                <p class="kosong">
+                    Keranjang masih kosong.
+                </p>
+            `;
+
+            jumlahKeranjang.innerText = "0";
+
+            totalHarga.innerText = "0";
+
+            return;
+
+        }
+
+
+        let html = "";
+
+        let total = 0;
+
+        let jumlahSemua = 0;
+
+
+        keranjang.forEach(
+            (produk, index) => {
+
+                const subtotal =
+                    produk.harga *
+                    produk.jumlah;
+
+
+                total += subtotal;
+
+                jumlahSemua +=
+                    produk.jumlah;
+
+
+                html += `
+
+                    <div class="cart-item">
+
+                        <div class="cart-info">
+
+                            <h3>
+                                ${produk.nama}
+                            </h3>
+
+                            <p>
+                                Rp${formatRupiah(produk.harga)}
+                                × ${produk.jumlah}
+                            </p>
+
+                        </div>
+
+
+                        <div class="cart-subtotal">
+
+                            Rp${formatRupiah(subtotal)}
+
+                        </div>
+
+
+                        <div class="jumlah">
+
+                            <button
+                                onclick="kurangiJumlah(${index})"
+                            >
+                                −
+                            </button>
+
+                            <span>
+                                ${produk.jumlah}
+                            </span>
+
+                            <button
+                                onclick="tambahJumlah(${index})"
+                            >
+                                +
+                            </button>
+
+                            <button
+                                class="hapus"
+                                onclick="hapusProduk(${index})"
+                            >
+                                🗑
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            }
+        );
+
+
+        isi.innerHTML = html;
+
+
+        jumlahKeranjang.innerText =
+            jumlahSemua;
+
+
+        totalHarga.innerText =
+            formatRupiah(total);
+
+    }
+
+
+    /* ==========================================
+       TAMBAH JUMLAH
+       ========================================== */
+
+    function tambahJumlah(index) {
+
+        keranjang[index].jumlah++;
+
+        tampilkanKeranjang();
+
+    }
+
+
+    /* ==========================================
+       KURANGI JUMLAH
+       ========================================== */
+
+    function kurangiJumlah(index) {
+
+        keranjang[index].jumlah--;
+
+
+        if (keranjang[index].jumlah <= 0) {
+
+            keranjang.splice(index, 1);
+
+        }
+
+
+        tampilkanKeranjang();
+
+    }
+
+
+    /* ==========================================
+       HAPUS PRODUK
+       ========================================== */
+
+    function hapusProduk(index) {
+
+        keranjang.splice(index, 1);
+
+        tampilkanKeranjang();
+
+    }
+
+
+    /* ==========================================
+       CHECKOUT WHATSAPP
+       ========================================== */
+
+    function checkoutWhatsApp() {
+
+        if (keranjang.length === 0) {
+
+            alert(
+                "Keranjang masih kosong!"
+            );
+
+            return;
+
+        }
+      const nomorWhatsApp = "6281517745800";
+
+
+        let pesan =
+            "Halo! Saya ingin memesan:%0A%0A";
+
+
+        let total = 0;
+
+
+        keranjang.forEach(
+            (produk, index) => {
+
+                const subtotal =
+                    produk.harga *
+                    produk.jumlah;
+
+
+                total += subtotal;
+
+
+                pesan +=
+                    (index + 1) +
+                    ". " +
+                    produk.nama +
+                    " x" +
+                    produk.jumlah +
+                    " = Rp" +
+                    formatRupiah(subtotal) +
+                    "%0A";
+
+            }
+        );
+
+
+        pesan +=
+            "%0A*Total: Rp" +
+            formatRupiah(total) +
+            "*";
+
+
+        pesan +=
+            "%0A%0ANama:%0AAlamat:%0ACatatan:";
+
+
+        const link =
+            "https://wa.me/" +
+            nomorWhatsApp +
+            "?text=" +
+            pesan;
+
+
+        window.open(
+            link,
+            "_blank"
+        );
+
+    }
+
+
+    /* ==========================================
+       JALANKAN SAAT WEBSITE DIBUKA
+       ========================================== */
+
+    tampilkanKeranjang();
+
+</script>
+
+
+</body>
+
+  </html>
